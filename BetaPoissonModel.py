@@ -9,7 +9,7 @@ import utils
 
 
 def Usage():
-    print("Usage: ", sys.argv[0], 'data_file_name mean_FISH se.mean_FISH BCK_params_file_name [db_file_name(.h5)]')
+    print("Usage: ", sys.argv[0], 'data_file_name mean_mu se_mu BCK_params_file_name [db_file_name(.h5)]')
     print('If using Python > 3.3, the launch the script with: >> PYTHONHASHSEED=0 parallel python3 BetaPoissonModel.py ::: ...')
     sys.exit()
 
@@ -28,27 +28,27 @@ def test():
   data = data[index] / scaling_divisor  
   poi = poi[index]
 
-  mean_FISH = 5.
-  var_FISH = 5.
+  mean_mu = 5.
+  var_mu = 5.
 
   mu_BKG = -10
   sd_BKG = 30
   alpha_BKG = 5
 
-  main(data, mean_FISH, var_FISH, mu_BKG, sd_BKG, alpha_BKG, n_steps, './', None)
+  main(data, mean_mu, var_mu, mu_BKG, sd_BKG, alpha_BKG, n_steps, './', None)
 
 
-def run(data_file_name, mean_FISH, var_FISH, BCK_params_file_name, db_file_name=None):
+def run(data_file_name, mean_mu, var_mu, BCK_params_file_name, db_file_name=None):
     """
     Parameters
     ----------
     data_file_name : string
         Name of the file that contains flow-FISH data.
         Must be formatted with utils.format_files().
-    mean_FISH : float
-        Sample mean of smFISH result.
-    var_FISH : float
-        Sample variance of smFISH result.
+    mean_mu : float
+        Sample mean of smFISH/nanoString result.
+    var_mu : float
+        Sample variance of smFISH/nanoString result.
     BCK_params_file_name : string
         Name of the file that contains the parameters estimated with utils.fit_BCK() from the background reads.
     db_file_name : string, optional
@@ -60,20 +60,20 @@ def run(data_file_name, mean_FISH, var_FISH, BCK_params_file_name, db_file_name=
 
     folder = data_file_name.strip('.csv')
 
-    return main(data, mean_FISH, var_FISH, mu_BKG, sd_BKG, alpha_BKG, n_steps, folder, db_file_name)
+    return main(data, mean_mu, var_mu, mu_BKG, sd_BKG, alpha_BKG, n_steps, folder, db_file_name)
 
 
-def main(data, mean_FISH, var_FISH, mu_BKG, sd_BKG, alpha_BKG, n_steps, folder, db_file_name):
+def main(data, mean_mu, var_mu, mu_BKG, sd_BKG, alpha_BKG, n_steps, folder, db_file_name):
   """
   Parameters
   ----------
   data : np.array
       flow-FISH data
       Must be formatted with utils.format_array()
-  mean_FISH : float
-      Sample mean of smFISH result.
-  var_FISH : float
-      Sample variance of smFISH result.
+  mean_mu : float
+      Sample mean of smFISH/nanoString result.
+  var_mu : float
+      Sample variance of smFISH/nanoString result.
   mu_BKG : float
       location parameter of the SkewNormal fit to the background data.
   sd_BKG : float
@@ -106,7 +106,7 @@ def main(data, mean_FISH, var_FISH, mu_BKG, sd_BKG, alpha_BKG, n_steps, folder, 
 
   # Dummy values just to initialise MB. To avoid numerical error must not be too close to o or 1.
   value_init = np.array([0.51246393, 0.28097763, 0.52042068, 0.79960688, 0.67806853, 0.74132544, 0.58796267, 0.47798822, 0.49119662, 0.33277814])
-  Mean = pymc.TruncatedNormal('Mean', mu=mean_FISH, tau=1./var_FISH, a=0.01, b=np.inf, value=mean_FISH)
+  Mean = pymc.TruncatedNormal('Mean', mu=mean_mu, tau=1./var_mu, a=0.01, b=np.inf, value=mean_mu)
   MB = pymc.Container(
     [pymc.Beta('MB%i'%i, alpha=Kon, beta=Koff, trace=False,
       size=int(size_block), value=value_init) for i in range(n_blocks)]
@@ -181,16 +181,16 @@ if __name__ == '__main__':
     print(i)
 
   data_file_name = sys.argv[1]
-  mean_FISH = float(sys.argv[2])
-  var_FISH = np.square(float(sys.argv[3]))
+  mean_mu = float(sys.argv[2])
+  var_mu = np.square(float(sys.argv[3]))
   BCK_params_file_name = sys.argv[4]
 
   if len(sys.argv) == 6:
     db_file_name = sys.argv[5]
     print('Continuing from previous chain %s'%db_file_name)
-    run(data_file_name, mean_FISH, var_FISH, BCK_params_file_name, db_file_name)
+    run(data_file_name, mean_mu, var_mu, BCK_params_file_name, db_file_name)
   elif len(sys.argv) == 5:
     print('Sampling from default initial conditions')
-    run(data_file_name, mean_FISH, var_FISH, BCK_params_file_name)
+    run(data_file_name, mean_mu, var_mu, BCK_params_file_name)
   else:
     Usage() 
