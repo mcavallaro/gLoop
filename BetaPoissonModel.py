@@ -104,7 +104,7 @@ def main(data, mean_mu, var_mu, mu_BKG, sd_BKG, alpha_BKG, n_steps, folder, db_f
   Kon = pymc.Gamma('Kon', alpha=0.001, beta=0.001)
   Koff = pymc.Gamma('Koff', alpha=0.001, beta=0.001)
 
-  # Dummy values just to initialise MB. To avoid numerical error must not be too close to o or 1.
+  # Dummy values just to initialise MB. To avoid numerical error must not be too close to 0 or 1.
   value_init = np.array([0.51246393, 0.28097763, 0.52042068, 0.79960688, 0.67806853, 0.74132544, 0.58796267, 0.47798822, 0.49119662, 0.33277814])
   Mean = pymc.TruncatedNormal('Mean', mu=mean_mu, tau=1./var_mu, a=0.01, b=np.inf, value=mean_mu)
   MB = pymc.Container(

@@ -1,8 +1,10 @@
 #!/usr/bin/env r
+
 # launch recursively the scripts to gate the flow cytometer with flowClust
 # and export single-cell mRNA reads.
-
-
+# This is Free Software - You can use and distribute it under
+# the terms of the GNU General Public License, version 3 or later
+# (c) Massimo Cavallaro (m.cavallaro@warwick.ac.uk)
 
 
 # % This code can be redistributed and/or modified under the terms of the 

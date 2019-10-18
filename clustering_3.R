@@ -1,5 +1,9 @@
 #!/usr/bin/env r
 
+# This is Free Software - You can use and distribute it under
+# the terms of the GNU General Public License, version 3 or later
+# (c) Massimo Cavallaro (m.cavallaro@warwick.ac.uk)
+
 lim<-function(f, f1) {
   Min<-min(exprs(f)[,f1])
   Max<-max(exprs(f)[,f1])

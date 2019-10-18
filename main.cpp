@@ -23,22 +23,15 @@ void usage(char *argv[]){
          " This is Free Software - You can use and distribute it under \n"
          " the terms of the GNU General Public License, version 3 or later\n\n"
          " (c) Massimo Cavallaro (m.cavallaro@warwick.ac.uk)\n\n");
-  printf("Usage: %s [# simulation time] [DIM ENSEMBLE] [alpha] [beta] [decay] [l_on] [l_off] [loop(recycling rate)] [folder]\n\n" , argv[0]);
+  printf("Usage: %s [# simulation time] [DIM ENSEMBLE] [alpha] [beta] [decay] [l_on] [l_off] [loop(recycling rate)]\n\n" , argv[0]);
 }
 
 int main(int argc, char *argv[]) {
 
-if (argc != 10){
+if (argc != 9){
     usage(argv);
     exit(1);
 }
-
-if (atoi(argv[9])>1){
-    usage(argv);
-    printf("Insert 0 for a constant transcription rate, 1 for a rate proportional to the Pol2 number\n");
-    exit(1);
-}
-
 
 ofstream swi;
 ofstream tran;
@@ -54,12 +47,12 @@ char file_name_ss[150];
 char file_name_PolIIss[150];
 char file_name_PolII[150];
 
-snprintf(file_name_switch_events, 150, "%s_%s_%s_%s_%s_%s_%s_%s.dat", argv[9], "trace/switch_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_transcription_events, 150, "%s_%s_%s_%s_%s_%s_%s_%s.dat", argv[9], "trace/transcription", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_mRNA, 150, "%s_%s_%s_%s_%s_%s_%s_%s.dat", argv[9], "trace/mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_ss, 150, "%s_%s_%s_%s_%s_%s_%s_%s.dat", argv[9], "trace/ss_mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_PolIIss, 150, "%s_%s_%s_%s_%s_%s_%s_%s.dat", argv[9], "trace/Pol2ss_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_PolII, 150, "%s_%s_%s_%s_%s_%s_%s_%s.dat", argv[9], "trace/Pol2_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_switch_events, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/switch_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_transcription_events, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/transcription", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_mRNA, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_ss, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/ss_mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_PolIIss, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/Pol2ss_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_PolII, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/Pol2_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
 
 fprintf(stderr, "%s\n", file_name_ss);
 
@@ -94,7 +87,6 @@ br.decay = atof(argv[5]);
 br.l_on = atof(argv[6]);
 br.l_off = atof(argv[7]);
 br.loop = atof(argv[8]);
-//br.isind = 1; //atoi(argv[9]);
 br.delta = 1;
 //br.thinning = 1;
 

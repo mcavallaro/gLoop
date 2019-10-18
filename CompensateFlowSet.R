@@ -1,4 +1,7 @@
 #!/usr/bin/env r
+# This is Free Software - You can use and distribute it under
+# the terms of the GNU General Public License, version 3 or later
+# (c) M. D. Walsh, M. Cavallaro
 
 library(flowCore)
 library(flowViz)

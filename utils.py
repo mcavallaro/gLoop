@@ -1,3 +1,7 @@
+# This is Free Software - You can use and distribute it under
+# the terms of the GNU General Public License, version 3 or later
+# (c) Massimo Cavallaro (m.cavallaro@warwick.ac.uk)
+
 import sys
 import numpy as np
 import glob

@@ -8,10 +8,10 @@ all: main.exe
 debug: main-g.exe
 
 main.exe: main.cpp  update.cpp
-	$(CC) -O3 -Wall  main.cpp  update.cpp -o main.exe $(CFLAGS) 
+	$(CC) -O3 -Wall  main.cpp  update.cpp -o main.exe $(CFLAGS) -Dfolder="\"results"\"
 
 main-g.exe: main.cpp   update.cpp
-	$(CC) -O3 -g -Wall  main.cpp  update.cpp -o main-g.exe $(CFLAGS) 
+	$(CC) -O3 -g -Wall  main.cpp  update.cpp -o main-g.exe $(CFLAGS) -Dfolder="\"results"\"
 
 
 .PHONY: clean
@@ -21,8 +21,7 @@ clean:
 .PHONY: install
 install:
 	mkdir -p ./results/trace
-	mkdir -p ./results/current
-	mkdir -p ./results/congestion/
-	mkdir -p ./results/generating/
-	mkdir -p ./results/occupation/
-	cp *exe ./results
+	cp *cpp ./results
+	cp LICENSE ./results
+	cp *h ./results
+

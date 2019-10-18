@@ -50,7 +50,7 @@ int update(Systems *system, int i, int j, Rates br){
 	system[i].part_sum[3] = system[i].part_sum[2] + br.l_off * system[i].is_open;
 	system[i].part_sum[4] = system[i].part_sum[3] + br.l_on * (1 - system[i].is_open);
 	system[i].part_sum[5] = system[i].part_sum[4] + br.loop *  br.beta * system[i].pol2 * system[i].is_open; // transcription (without loosing polymerase )
-  system[i].part_sum[6] = system[i].part_sum[5] + br.delta * system[i].pol2; // loose polymerase from compartment    
+	system[i].part_sum[6] = system[i].part_sum[5] + br.delta * system[i].pol2; // loose polymerase from compartment    
     // system[i].part_sum[7] = system[i].part_sum[6]; // + (1 - br.thinning) * (1 + br.loop) * br.beta * system[i].pol2 * system[i].is_open; // do nothing
 	return EXIT_SUCCESS;
 }
