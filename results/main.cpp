@@ -16,7 +16,7 @@
 void usage(char *argv[]){
   printf("**************************************************************\n"
          "**                                                          **\n"
-         "**                  Simulate mRNA populations               **\n"
+         "**                  Simulate mRNA population                **\n"
          "**                                                          **\n"
          "**************************************************************\n"
          "\n\n"
@@ -47,12 +47,12 @@ char file_name_ss[150];
 char file_name_PolIIss[150];
 char file_name_PolII[150];
 
-snprintf(file_name_switch_events, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/switch_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_transcription_events, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/transcription", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_mRNA, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_ss, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/ss_mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_PolIIss, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/Pol2ss_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
-snprintf(file_name_PolII, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "/trace/Pol2_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_switch_events, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "trace/switch_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_transcription_events, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "trace/transcription", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_mRNA, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "trace/mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_ss, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "trace/ss_mRNA_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_PolIIss, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "trace/Pol2ss_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+snprintf(file_name_PolII, 150, "%s%s_%s_%s_%s_%s_%s_%s.dat", folder, "trace/Pol2_", argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
 
 fprintf(stderr, "%s\n", file_name_ss);
 
