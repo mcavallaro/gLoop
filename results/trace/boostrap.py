@@ -34,5 +34,4 @@ print("A02 CV2", np.mean(a05_cv), np.std(a05_cv), )
 # A05 mean 71.14697600000001 0.7060320154383931
 # A02 CV2 0.7957485888690067 0.012416012993820197
 
-#We discussed an older version of the manuscript with Cell Systems editor, who didn't find focus on transgenes relevant to cell-system biology. Genome-wide analysis is now included to support our study.
 

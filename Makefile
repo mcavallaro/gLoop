@@ -21,7 +21,7 @@ clean:
 .PHONY: install
 install:
 	mkdir -p ./results/trace
-	cp *cpp ./results
+	cp *.cpp ./results
 	cp LICENSE ./results
-	cp *h ./results
+	cp *.h ./results
 

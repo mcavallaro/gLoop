@@ -35,7 +35,7 @@ if (argc != 9){
 
 ofstream swi;
 ofstream tran;
-ofstream mRNA;  
+ofstream mRNA;
 ofstream ss;
 ofstream PolIIss;
 ofstream PolII;
@@ -176,8 +176,8 @@ printf("%s %f %f %s %f %f %f \n",
     /* br.alpha / (br.delta + br.beta),*/
     media_Pol2,
     "mRNA",
-    br.beta * br.l_on / (br.l_on + br.l_off) / br.decay * 
-    (br.alpha + br.loop * mpol2 * br.beta) / (br.delta + br.beta) ,    
+    br.beta * br.l_on / (br.l_on + br.l_off) / br.decay *
+    (br.alpha + br.loop * mpol2 * br.beta) / (br.delta + br.beta),
     br.beta * mpol2 / br.decay * br.l_on / (br.l_on + br.l_off),
     media_mRNA);
 
