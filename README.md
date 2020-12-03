@@ -1,7 +1,7 @@
 
 # Gloop
 
-This repository contains supporting software and data to reference [1]. Please cite [1] if you find this repository useful. The software is organised as follows.
+This repository contains supporting software to reference [1]. Please cite [1] if you find this repository useful. The software is organised as follows.
 
 
   * `R` scripts for tidying flow cytometry `.fcs` data and resolving cell-cycle stages (G1/M/G2).
