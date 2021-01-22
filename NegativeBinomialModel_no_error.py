@@ -60,7 +60,7 @@ def main(data, n_steps, folder, verbose):
     if not os.path.exists(path):
        os.makedirs(path)
 
-    MCMC = pymc.MCMC([K, Mean, X], db='hdf5', dbname=path + '/BetaPoisson.h5')
+    MCMC = pymc.MCMC([K, Mean, X], db='hdf5', dbname=path + '/NegativeBinomial.h5')
     MCMC.sample(iter=int(n_steps * 3. / 2.), burn=int(n_steps / 2.), thin=int(n_steps / thinning), verbose=verbose, tune_throughout=True)
 
     pymc.Matplot.plot(MCMC, path=path)
