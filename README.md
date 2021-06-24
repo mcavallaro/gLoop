@@ -61,17 +61,17 @@ This repository contains supporting software to reference [1]. Please cite [1] i
 
 
 
-[1] M. Cavallaro, *et al.*, 3'-5' interactions contribute to transcriptional bursting, bioR$\chi$iv 514174. https://doi.org/10.1101/514174 
+[1] M. Cavallaro, M.D. Walsh, M. Jones, *et al.*, 3'-5' interactions contribute to transcriptional bursting. *Genome Biol* **22**, 56 (2021). https://doi.org/10.1186/s13059-020-02227-5
 
-[2] F. Hahne, *et al.*, flowCore: a Bioconductor package for high throughput flow cytometry., BMC Bioinformatics. 10 (2009) 106. http://www.ncbi.nlm.nih.gov/pubmed/19358741
+[2] F. Hahne, *et al.*, flowCore: a Bioconductor package for high throughput flow cytometry. *BMC Bioinformatics* **10** 106 (2009). http://www.ncbi.nlm.nih.gov/pubmed/19358741
 
-[3] K. Lo *et al.*, flowClust: a Bioconductor package for automated gating of flow cytometry data, BMC Bioinformatics. 10 (2009) 145. https://www.ncbi.nlm.nih.gov/pubmed/19442304
+[3] K. Lo *et al.*, flowClust: a Bioconductor package for automated gating of flow cytometry data. *BMC Bioinformatics* **10**, 145 (2009). https://www.ncbi.nlm.nih.gov/pubmed/19442304
 
 [4] M. Galassi *et al.*, GNU Scientific Library Reference Manual (3rd Ed.), ISBN 0954612078. http://www.gnu.org/software/gsl/
 
-[5] A. Patil, D. Huard, C. Fonnesbeck, PyMC: Bayesian Stochastic Modelling in Python, J. Stat. Softw. 35 (2010) 1–81. https://pymc-devs.github.io/pymc/
+[5] A. Patil, D. Huard, C. Fonnesbeck, PyMC: Bayesian Stochastic Modelling in Python. *J. Stat. Softw.* **35** 1–81 (2010). https://pymc-devs.github.io/pymc/
 
-[6] J. Salvatier, T. Wiecki, C. Fonnesbeck, Probabilistic Programming in Python using PyMC3, PeerJ Comput. Sci. 2 (2015) e55. https://docs.pymc.io/
+[6] J. Salvatier, T. Wiecki, C. Fonnesbeck, Probabilistic Programming in Python using PyMC3. *PeerJ Comput. Sci.* **2**, e55 (2015). https://docs.pymc.io/
  
 
 
